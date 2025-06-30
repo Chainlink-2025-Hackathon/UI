@@ -1,36 +1,197 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bitrest UI - Cryptocurrency Trading Platform
 
-## Getting Started
+A modern, responsive cryptocurrency trading platform built with Next.js, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Landing Page
+- **Modern Hero Section** with compelling call-to-action and platform statistics
+- **Feature Showcase** highlighting key platform benefits
+- **Live Market Overview** with real-time price data and trading pairs
+- **Responsive Design** optimized for all devices
+
+### Trading Dashboard
+- **Advanced Trading Interface** with professional-grade tools
+- **Interactive Charts** with multiple timeframe options
+- **Real-time Order Book** showing live buy/sell orders
+- **Order Placement** with market and limit order types
+- **Recent Trades** history and execution details
+
+### UI Components
+- **Professional Header** with navigation and user actions
+- **Market Data Tables** with price changes and volume
+- **Trading Forms** with buy/sell functionality
+- **Responsive Footer** with comprehensive links
+
+## 🛠 Technology Stack
+
+- **Framework**: Next.js 15.3.4 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **Icons**: Lucide React
+- **UI Components**: Custom components with Radix UI integration
+- **State Management**: React hooks
+
+## 📦 Project Structure
+
+```
+bitrest-ui/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx           # Landing page
+│   │   ├── trading/
+│   │   │   └── page.tsx       # Trading dashboard
+│   │   ├── layout.tsx         # Root layout
+│   │   └── globals.css        # Global styles
+│   ├── components/
+│   │   ├── Header.tsx         # Navigation header
+│   │   ├── Hero.tsx           # Hero section
+│   │   ├── Features.tsx       # Features showcase
+│   │   ├── MarketOverview.tsx # Market data table
+│   │   └── Footer.tsx         # Site footer
+│   └── lib/
+│       └── utils.ts           # Utility functions
+├── public/                    # Static assets
+├── package.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Design Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Color Scheme
+- **Primary**: Blue gradient (blue-600 to purple-600)
+- **Success**: Green tones for positive changes
+- **Danger**: Red tones for negative changes
+- **Neutral**: Gray scale for backgrounds and text
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Typography
+- **Headings**: Bold, modern font weights
+- **Body**: Clean, readable text with proper spacing
+- **Data**: Monospace for numerical values
 
-## Learn More
+### Interactive Elements
+- **Hover Effects**: Smooth transitions on buttons and cards
+- **Focus States**: Clear focus indicators for accessibility
+- **Loading States**: Visual feedback for user actions
 
-To learn more about Next.js, take a look at the following resources:
+## 🚦 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd bitrest-ui
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Open in browser**
+   ```
+   http://localhost:3000
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Pages and Routes
+
+- **`/`** - Landing page with hero, features, and market overview
+- **`/trading`** - Full trading dashboard with charts and order forms
+- **Navigation links** for additional pages (to be implemented):
+  - `/markets` - Complete market listings
+  - `/api` - API documentation
+  - `/spot` - Spot trading interface
+  - `/futures` - Futures trading interface
+
+## 🎯 Key Components Explained
+
+### Header Component
+- Responsive navigation with mobile menu
+- User account actions and notifications
+- Dropdown menus for product categories
+
+### Hero Section
+- Compelling value proposition
+- Platform statistics and trust indicators
+- Call-to-action buttons for user acquisition
+
+### Trading Interface
+- Real-time price charts with SVG graphics
+- Order book with live buy/sell data
+- Trading forms with market/limit order types
+- Recent trades history
+
+### Market Overview
+- Sortable table of cryptocurrency prices
+- Price change indicators with color coding
+- Volume data and trading actions
+
+## 🔧 Customization
+
+### Adding New Trading Pairs
+Update the `tradingPairs` array in `/src/app/trading/page.tsx`:
+
+```typescript
+const tradingPairs = [
+  { symbol: 'NEW/USD', price: 123.45, change: 1.23 },
+  // ... existing pairs
+]
+```
+
+### Modifying Color Scheme
+Update Tailwind classes throughout components or customize the theme in `tailwind.config.js`.
+
+### Adding New Features
+Create new components in `/src/components/` and import them into the relevant pages.
+
+## 📊 Mock Data
+
+The current implementation uses mock data for demonstration purposes:
+- Market prices and changes
+- Order book data
+- Trading history
+- User balances
+
+For production use, integrate with real cryptocurrency APIs such as:
+- CoinGecko API
+- Binance API
+- CoinMarketCap API
+
+## 🚀 Deployment
+
+Build for production:
+```bash
+npm run build
+npm start
+```
+
+Deploy to Vercel (recommended):
+```bash
+npx vercel
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🔗 Links
+
+- **Live Demo**: [To be deployed]
+- **Documentation**: This README
+- **Support**: Create an issue for questions or bugs
+
+---
+
+Built with ❤️ using Next.js and Tailwind CSS
