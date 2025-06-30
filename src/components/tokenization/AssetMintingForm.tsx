@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { FileText, Shield, MapPin } from 'lucide-react';
-import { useWriteContract, type BaseError } from 'wagmi';
+import { useWriteContract } from 'wagmi';
 import { useMintAsset } from '@/hooks/useApi';
 import { useWallet } from '@/hooks/useWallet';
 import { useTransaction } from '@/hooks/useTransaction';
@@ -144,7 +144,7 @@ export default function AssetMintingForm({ onMint }: AssetMintingFormProps) {
 
   // Handle contract errors
   if (contractError && !error) {
-    setError(`Contract Error: ${(contractError as BaseError).shortMessage || contractError.message}`);
+    setError(`Contract Error: ${contractError.message}`);
   }
 
   return (

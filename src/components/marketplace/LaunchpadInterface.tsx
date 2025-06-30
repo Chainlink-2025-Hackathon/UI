@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { Rocket, Star, TrendingUp, Clock, Users, Tag, DollarSign, Zap } from 'lucide-react';
+import { Rocket, Star, TrendingUp, Clock, Users, Tag, Zap } from 'lucide-react';
+import Image from 'next/image';
 
 interface LaunchpadListing {
   id: string;
@@ -51,7 +52,6 @@ interface LaunchpadInterfaceProps {
   userAssets?: UserAsset[];
   onCreateListing?: (listingData: CreateListingData) => void;
   onPurchaseTokens?: (listingId: string, amount: string) => void;
-  onWithdrawTokens?: (listingId: string) => void;
   isLoading?: boolean;
 }
 
@@ -82,7 +82,6 @@ export default function LaunchpadInterface({
   userAssets = [],
   onCreateListing,
   onPurchaseTokens,
-  onWithdrawTokens,
   isLoading = false
 }: LaunchpadInterfaceProps) {
   const [activeTab, setActiveTab] = useState<'browse' | 'create' | 'my-listings'>('browse');
@@ -194,7 +193,7 @@ export default function LaunchpadInterface({
         ].map(({ id, name, shortName, icon: Icon }) => (
           <button
             key={id}
-            onClick={() => setActiveTab(id as any)}
+            onClick={() => setActiveTab(id as 'browse' | 'create' | 'my-listings')}
             className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-lg font-medium transition-all text-xs sm:text-sm lg:text-base ${
               activeTab === id
                 ? 'bg-accent text-accent-foreground'
@@ -275,9 +274,11 @@ export default function LaunchpadInterface({
               <div key={listing.id} className="bg-card rounded-lg border border-card-border overflow-hidden hover:shadow-lg transition-shadow">
                 {/* Image */}
                 <div className="relative">
-                  <img 
+                  <Image 
                     src={listing.image} 
                     alt={listing.title}
+                    width={400}
+                    height={200}
                     className="w-full h-32 sm:h-40 lg:h-48 object-cover"
                   />
                   <div className="absolute top-2 left-2 flex flex-wrap gap-1">
@@ -322,9 +323,11 @@ export default function LaunchpadInterface({
 
                   {/* Creator */}
                   <div className="flex items-center gap-2">
-                    <img 
+                    <Image 
                       src={listing.creator.avatar} 
                       alt={listing.creator.name}
+                      width={24}
+                      height={24}
                       className="w-4 sm:w-6 h-4 sm:h-6 rounded-full"
                     />
                     <span className="text-xs sm:text-sm font-medium truncate">{listing.creator.name}</span>
@@ -459,7 +462,7 @@ export default function LaunchpadInterface({
                   <label className="block text-sm font-medium mb-2">Sale Type</label>
                   <select 
                     value={listingForm.saleType}
-                    onChange={(e) => setListingForm({...listingForm, saleType: e.target.value as any})}
+                    onChange={(e) => setListingForm({...listingForm, saleType: e.target.value as 'fixed' | 'dutch' | 'whitelist'})}
                     className="w-full px-3 py-2 border border-card-border rounded-md bg-background text-foreground text-sm"
                   >
                     <option value="fixed">Fixed Price</option>

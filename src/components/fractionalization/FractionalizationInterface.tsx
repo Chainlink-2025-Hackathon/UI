@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Scissors, Share2, Lock, Unlock, PieChart, ChevronDown, Loader2, Shield } from 'lucide-react';
-import { useWriteContract, type BaseError } from 'wagmi';
+import { Scissors, Share2, Lock, PieChart, ChevronDown, Loader2, Shield } from 'lucide-react';
+import { useWriteContract } from 'wagmi';
 import { useWallet } from '@/hooks/useWallet';
 import { useTransaction } from '@/hooks/useTransaction';
 import { TransactionModal } from '@/components/wallet';

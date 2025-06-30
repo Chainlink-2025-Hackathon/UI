@@ -377,7 +377,7 @@ export default function PortfolioInterface({ userAddress }: PortfolioInterfacePr
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => setActiveTab(tab.id as 'overview' | 'nfts' | 'fractionalized' | 'liquidity' | 'loans' | 'launchpad')}
                 className={`flex items-center gap-2 px-3 py-2 font-medium text-sm whitespace-nowrap border-b-2 transition-colors ${
                   activeTab === tab.id
                     ? 'border-accent text-accent'
